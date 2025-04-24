@@ -1,0 +1,15 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutBucketPolicy",
+                "s3:GetBucketPolicy",
+                "s3:PutPublicAccessBlock",
+                "s3:GetPublicAccessBlock"
+            ],
+            "Resource": "arn:aws:s3:::credit-card-users-1745451096"
+        }
+    ]
+}

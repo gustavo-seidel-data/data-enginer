@@ -1,0 +1,8 @@
+data-lake/
+├── raw/               # Original, unprocessed data
+│   ├── source1/
+│   ├── source2/
+│   └── ...
+├── processed/         # Cleaned and transformed data
+├── curated/           # Business-ready datasets
+└── metastore/         # Metadata and schemas
