@@ -1,0 +1,40 @@
+# AWS credentials and configuration files
+**/.aws/
+**/aws_config.json
+**/aws-credentials.json
+**/config.json
+
+# AWS CLI and SDK files
+**/awscli/
+**/boto3/
+
+# AWS SAM and CloudFormation
+**/.aws-sam/
+**/samconfig.toml
+
+# AWS CDK
+**/cdk.out/
+**/.cdk.staging/
+**/cdk.context.json
+
+# Terraform files (if used with AWS)
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.backup
+**/.terraform.lock.hcl
+
+# IDE specific files
+**/.idea/
+**/.vscode/
+**/*.swp
+
+# Node.js (if using AWS SDK with JavaScript)
+**/node_modules/
+**/package-lock.json
+**/.env
+
+# Python (if using AWS SDK with Python)
+**/__pycache__/
+**/*.pyc
+**/.python-version
+**/venv/

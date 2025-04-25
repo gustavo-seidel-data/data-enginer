@@ -1,0 +1,36 @@
+{
+  "Comment": "Credit Card Processing Pipeline",
+  "StartAt": "CheckNewFiles",
+  "States": {
+    "CheckNewFiles": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:s3:listObjectsV2",
+      "Parameters": {
+        "Bucket": "credit-card-users-1745451096",
+        "Prefix": "raw/source1/initial_load/"
+      },
+      "Next": "ProcessFiles"
+    },
+    "ProcessFiles": {
+      "Type": "Map",
+      "ItemsPath": "$.Contents",
+      "Iterator": {
+        "StartAt": "StartGlueJob",
+        "States": {
+          "StartGlueJob": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::aws-sdk:glue:startJobRun",
+            "Parameters": {
+              "JobName": "CreditCardTransformation",
+              "Arguments": {
+                "--input_path.$": "States.Format('s3://credit-card-users-1745451096/{}', $.Key)"
+              }
+            },
+            "End": true
+          }
+        }
+      },
+      "End": true
+    }
+  }
+}
